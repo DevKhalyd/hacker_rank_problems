@@ -1,3 +1,0 @@
-gello = "asdsadasd"
-
-print(gello)
