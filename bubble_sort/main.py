@@ -1,8 +1,7 @@
-import math
-import os
-import random
-import re
-import sys
+
+# Sources to help to solutionate the problem
+# https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
+# https://stackoverflow.com/questions/2493920/how-to-switch-position-of-two-items-in-a-python-list
 
 if __name__ == '__main__':
 
@@ -12,6 +11,7 @@ if __name__ == '__main__':
     # The array
     a = list(map(int, input().rstrip().split()))
 
+    print('Initial arrray: ', a)
     # Goals output
 
     """
@@ -32,22 +32,24 @@ if __name__ == '__main__':
     """
 
     numberOfSwaps = 0
+    endPosition = len(a) - 1
 
-    for index, item in enumerate(a, start=1):
-        # It´s not in it's own place
-        if index != item:
-            # Looking for that value
-            for index2, i in enumerate(a):
+    while endPosition > 0:
+        swapPosition = 0
+        counter = 0
+        for item in range(endPosition):
+            i = a[counter]
+            currentValue = i
+            nextValue = a[counter + 1]
+            if currentValue > nextValue:
+                tmp = i
+                a[counter] = nextValue
+                a[counter + 1] = currentValue
+                swapPosition = counter
                 numberOfSwaps += 1
-                if i == index:
-                    a[index - 1] = i
-                    a[index2] = item
+            counter += 1
+        endPosition = swapPosition
 
-    print('Array is sorted in ',numberOfSwaps,' swaps.')
-    print('First Element: ', a[0])
-    print('Last Element: ', a[len(a) - 1])
-
-
-# Sources to help to solutionate the problem
-# https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
-# https://stackoverflow.com/questions/2493920/how-to-switch-position-of-two-items-in-a-python-list
+    print('Array is sorted in', numberOfSwaps, 'swaps.')
+    print('First Element:', a[0])
+    print('Last Element:', a[len(a) - 1])
