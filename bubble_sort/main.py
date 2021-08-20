@@ -49,7 +49,7 @@ if __name__ == '__main__':
                 numberOfSwaps += 1
             counter += 1
         endPosition = swapPosition
-
+    
     print('Array is sorted in', numberOfSwaps, 'swaps.')
     print('First Element:', a[0])
     print('Last Element:', a[len(a) - 1])
