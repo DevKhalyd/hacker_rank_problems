@@ -51,18 +51,28 @@ class Solution:
         if head is None:
             return None
 
-        # The last value to check out if should be removed
-
+        newHead = Solution()
+        h = None
         start = head
-        lastValue = start.data
-        # TODO: Draw and understan the problem
+        # The last value
+        lastValue = None
         # Iterates over the node
-        while (start.next != None):
-            # This node always is not None
-            nextNode = start.next
-            if lastValue == nextNode.data:
-                start.next = None
-            start = nextNode.next
+        while start:
+            data = start.data
+            if data != lastValue:
+                h = newHead.insert(h, data)
+            lastValue = data
+            start = start.next
+        return h
+
+    def removeDuplicates2(self,head):
+        current = head
+        while current.next:
+            # Basically if the following data is equal to the current changes the next with the next next
+            if current.data == current.next.data:
+                current.next = current.next.next
+            else:
+                current = current.next
         return head
 
 
@@ -72,5 +82,20 @@ head = None
 for i in range(T):
     data = int(input())
     head = mylist.insert(head, data)
-head = mylist.removeDuplicates(head)
+head = mylist.removeDuplicates2(head)
 mylist.display(head)
+
+"""Other solutions:
+My solution is not good for the following reasons:
+Time and complexity.
+But this one goods ok.
+
+def removeDuplicates(self,head):
+    current = head
+    while current.next:
+        if current.data == current.next.data:
+            current.next = current.next.next
+        else:
+            current = current.next
+    return head
+"""
