@@ -13,8 +13,6 @@ Ref:https://www.hackerrank.com/challenges/30-running-time-and-complexity/problem
 
 # NOTE: This code works for the first 10 numbers but what if I have a number bigger???
 
-# TODO: Complete with another algorithm
-
 prime = 'Prime'
 not_prime = 'Not prime'
 
@@ -44,3 +42,25 @@ for i in range(T):
 
 for s in list:
     print(s)
+
+# https://www.hackerrank.com/challenges/30-running-time-and-complexity/forum/comments/722684
+
+for _ in range(int(input())):
+    num = int(input())
+    if(num == 1):
+        print("Not prime")
+    else:
+        if(num % 2 == 0 and num > 2):
+            print("Not prime")
+        else:
+            # Range contains 3 parameters start, stop and step
+            # start : Its because we are working just with odd numbers
+            # step : We are working with odd numbers so we are skipping even numbers
+            # stop : Get the square root of the number to dicrease that value if its a large number.
+            # Add 1 to convert the value to upper bound
+            for i in range(3, int(num**(1/2))+1, 2):
+                if num % i == 0:
+                    print("Not prime")
+                    break
+            else:
+                print("Prime")
