@@ -98,8 +98,7 @@ def get_hackos() -> int:
 # Print the result
 print(get_hackos())
 
-# Another solution with tuple
-
+# Another solution with tuple (from HackerRank)
 
 rd, rm, ry = [int(x) for x in input().split(' ')]
 ed, em, ey = [int(x) for x in input().split(' ')]
