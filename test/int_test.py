@@ -14,10 +14,6 @@ print("========= BASIC TEST FINISHED =========")
 num = 10000
 
 # Reduce its value to the half
-powerOfNum = int(num ** (1/2)) + 1 
-
-
-
+powerOfNum = int(num ** (1/2)) + 1
 
 print(f"{powerOfNum}")
-

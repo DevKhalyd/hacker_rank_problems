@@ -19,9 +19,11 @@ Complete the tasks
 
 """
 
+
 def minimum_index(seq):
     if len(seq) == 0:
-        raise ValueError("Cannot get the minimum value index from an empty sequence")
+        raise ValueError(
+            "Cannot get the minimum value index from an empty sequence")
     min_idx = 0
     for i in range(1, len(seq)):
         if seq[i] < seq[min_idx]:
@@ -29,6 +31,32 @@ def minimum_index(seq):
     return min_idx
 
 
+class TestDataEmptyArray():
+    @staticmethod
+    def get_array():
+        return []
+
+
+class TestDataUniqueValues():
+
+    @staticmethod
+    def get_array():
+        return [1, 2]
+
+    @staticmethod
+    def get_expected_result():
+        return 0
+
+
+class TestDataExactlyTwoDifferentMinimums():
+
+    @staticmethod
+    def get_array():
+        return [1, 1]
+
+    @staticmethod
+    def get_expected_result():
+        return 0
 
 
 def TestWithEmptyArray():
@@ -62,8 +90,8 @@ def TestiWithExactyTwoDifferentMinimums():
     result = minimum_index(seq)
     assert result == expected_result
 
+
 TestWithEmptyArray()
 TestWithUniqueValues()
 TestiWithExactyTwoDifferentMinimums()
 print("OK")
-
