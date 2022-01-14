@@ -17,7 +17,7 @@ https://dartpad.dev/?id Check the result of 1&2 expression
 
 """
 
-# TODO Undestand the bitwise AND operator
+# TODO: Test against the hacker rank test
 
 
 def bitwiseAnd(N, K):
@@ -29,13 +29,13 @@ def bitwiseAnd(N, K):
     # Max Possible
     mP = 0
 
-    for _, val in enumerate(list):
+    for val in list:
 
-        # For in each value of the list
+        A = val
 
+        # As a possible solution is to get the root of N...
         for x in range(val, N):
-            A = x + 1
-            B = A + 1
+            B = x + 1
 
             if B > N:
                 break
@@ -44,6 +44,7 @@ def bitwiseAnd(N, K):
 
             if result < K and result > mP:
                 mP = result
+
     return mP
 
 
@@ -51,10 +52,10 @@ if __name__ == '__main__':
     #fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     # Test not passed with 5 2...
-    count = 5
+    count = 8
 
-    lim = 2
+    lim = 5
 
     res = bitwiseAnd(count, lim)
 
-    print(res)
+    print(f"Result is: {res}")
