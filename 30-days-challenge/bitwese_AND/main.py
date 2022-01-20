@@ -12,62 +12,35 @@ https://docs.microsoft.com/en-us/cpp/cpp/bitwise-and-operator-amp?view=msvc-170
 https://dartpad.dev/?id Check the result of 1&2 expression
 """
 # Rewrite this function with the new data found and test against the problems
-def bitwiseAnd(n, k):
 
-    pass
+# TODO: Test the 5 case
 
+def bitwiseAnd(N, K):
 
-def bitwiseAnd2(N, K):
-    """N: limit of the set of numbers
-       K: The limit to return in this function
-    """
+    mp = 0
 
-    list = range(1, N)
-    # Max Possible value
-    mP = 0
+    A = K - 1
 
-    for val in list:
+    for x in range(A, N):
+        B = x + 1
 
-        # TODO: Just use K - 1
-        A = K - 1
-
-        iterations = 0
-        # Avoid iterate a lot of times more
-        if mP != 0 and mP == K-1:
+        if B > N:
             break
 
-        for x in range(A, N):
-            iterations += 1
-            B = x + 1
+        result = A & B
 
-            # Not in the set of numbers
-            if B > N:
-                break
+        if result < K and result > mp:
+            mp = result
 
-            result = A & B
-
-            print(f"{A} & {B} = {result}. Find Min: {K - 1}")
-
-            if result < K and result > mP:
-                mP = result
-
-            if mP != 0 and mP == K-1:
-                break
-
-    return mP
+    return mp
 
 
 if __name__ == '__main__':
     #fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    # Test not passed with 5 2...
+    count = 625
 
-    # TODO:Test the other cases
-
-    count = 614
-
-    lim = 327
-    # Expected 103 getting 106. Why?
+    lim = 457
 
     res = bitwiseAnd(count, lim)
 
