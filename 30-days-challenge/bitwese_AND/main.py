@@ -13,8 +13,6 @@ https://dartpad.dev/?id Check the result of 1&2 expression
 """
 # Rewrite this function with the new data found and test against the problems
 
-# TODO: Test the 5 case
-
 def bitwiseAnd(N, K):
 
     mp = 0
@@ -36,6 +34,7 @@ def bitwiseAnd(N, K):
 
 
 if __name__ == '__main__':
+    # Test data in this case
     #fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     count = 625
